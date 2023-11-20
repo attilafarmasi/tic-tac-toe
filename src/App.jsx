@@ -2,6 +2,7 @@ import Player from './components/Player.jsx';
 import GameBoard from './components/GameBoard.jsx';
 import { useState } from 'react';
 import Log from './components/Log.jsx';
+import { WINNING_COMBINATIONS } from 'src/winning-combinations.js';
 
 function deriveActivePlayer(gameTurns) {
 	let currentPlayer = 'X';
@@ -31,8 +32,16 @@ function App() {
 		<main>
 			<div id={'game-container'}>
 				<ol id={'players'} className={'highlight-player'}>
-					<Player initialName={'Player 1'} symbol={'X'} isActive={activePlayer === 'X'}/>
-					<Player initialName={'Player 2'} symbol={'O'} isActive={activePlayer === 'O'}/>
+					<Player
+						initialName={'Player 1'}
+						symbol={'X'}
+						isActive={activePlayer === 'X'}
+					/>
+					<Player
+						initialName={'Player 2'}
+						symbol={'O'}
+						isActive={activePlayer === 'O'}
+					/>
 				</ol>
 				<GameBoard onSelectSquare={handleSelectSquare} turns={gameTurns}/>
 			</div>
